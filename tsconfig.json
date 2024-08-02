@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "nodenext",
+    "verbatimModuleSyntax": true,
+    "moduleResolution": "nodenext",
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "jsxImportSource": "react",
+    "paths": {
+      "@*": ["src/*"]
+    }
+  },
+  "exclude": ["dist"]
+}

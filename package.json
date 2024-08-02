@@ -1,0 +1,31 @@
+{
+  "name": "simple-editor",
+  "description": "A simple editor showcasing the use of TutorialKit's react components",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "start": "vite dev",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@tutorialkit/components-react": "0.0.1-alpha.25",
+    "@webcontainer/api": "1.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@iconify-json/ph": "^1.1.13",
+    "@tutorialkit/theme": "0.0.1-alpha.25",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@unocss/reset": "^0.59.4",
+    "@vitejs/plugin-react": "^4.3.1",
+    "fast-glob": "^3.3.2",
+    "typescript": "^5.4.5",
+    "unocss": "^0.59.4",
+    "vite": "^5.3.1"
+  }
+}
