@@ -1,5 +1,5 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# Simple workflow for deploying static content to Netlify
+name: Deploy static content to Netlify
 
 on:
   # Runs on pushes targeting the default branch
@@ -9,23 +9,22 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+# Sets the NETLIFY_TOKEN permissions to allow deployment to Netlify
 permissions:
   contents: read
-  pages: write
   id-token: write
 
 # Allow one concurrent deployment
 concurrency:
-  group: 'pages'
+  group: 'netlify'
   cancel-in-progress: true
 
 jobs:
   # Single deploy job since we're just deploying
   deploy:
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: netlify
+      url: ${{ steps.deployment.outputs.site_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,13 +38,11 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload dist folder
-          path: './dist'
-      - name: Deploy to GitHub Pages
+      - name: Deploy to Netlify
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: nwtgck/actions-netlify@v1.1.0
+        with:
+          publish-dir: './dist'
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          netlify-token: ${{ secrets.NETLIFY_TOKEN }}
